@@ -4,7 +4,7 @@ pipeline{
     stages{
         stage('Test parametes'){
             steps{
-                echo "Checking parameter ${params.podname}"
+                echo "podname: ${params.podname}"
             }
         }
     }
