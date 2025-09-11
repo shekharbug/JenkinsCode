@@ -3,7 +3,9 @@ pipeline{
 
     stages{
         stage('Test parametes'){
-            echo "Checking parameter ${params.podname}"
+            steps{
+                echo "Checking parameter ${params.podname}"
+            }
         }
     }
 }
