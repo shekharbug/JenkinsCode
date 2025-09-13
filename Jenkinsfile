@@ -1,27 +1,22 @@
-node {
-    try {
-        stage('Build') {
-            echo 'Building the application...'
+pipeline{
+    agent any
+    stages {
+        stage('git Pull'){
+            steps{
+                git branch: 'main', url: 'https://github.com/shekharbug/JenkinsCode.git'
+            }
         }
-        stage('Test') {
-            echo 'Running tests...'
-            // Simulating a failed test with 'error' step
-            error('Tests failed!')
+        stage('Setting virtual env'){
+            steps{
+                script{
+                    sh '. /mnt/c/shekhar/pCode/venv/bin/activate'
+                }
+            }
         }
-    }
-    catch (e) {
-        // This acts like the 'failure' block
-        echo 'The build failed. Sending a notification...'
-        currentBuild.result = 'FAILURE'
-        throw e
-    }
-    finally {
-        // This acts like the 'always' block
-        echo 'This will always run for cleanup tasks.'
-        // Additional conditional logic can be added here
-        if (currentBuild.result == 'SUCCESS') {
-            // This is the equivalent of a 'success' block
-            echo 'The build was successful! Proceeding with deployment...'
+        stage('Execute Ansible code'){
+            steps{
+                ansiblePlaybook become: true, installation: 'Ansible', inventory: 'ansibleCode/inv/hosts', playbook: 'ansibleCode/ping_all_hosts.yml', vaultTmpPath: ''
+            }
         }
     }
 }

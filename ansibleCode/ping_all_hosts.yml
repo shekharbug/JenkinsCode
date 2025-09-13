@@ -1,7 +1,9 @@
 ---
-- name : ping all hosts
-  hosts: localhost
+- name : ping db host
+  hosts: dbhost
   gather_facts: no
+  become: yes
+  become_user: root
   tasks:
     - name: debug messages
       debug:
