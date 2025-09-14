@@ -6,9 +6,6 @@
     - name: include db operaton role 
       include_role:
         name: dbOps
-        apply:
-            become: yes
-            become_user: root
 
     - name: debug messages
       debug:
