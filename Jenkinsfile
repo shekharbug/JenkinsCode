@@ -14,6 +14,9 @@ pipeline{
             }
         }
         stage('Execute Ansible code'){
+            environment {
+                ANSIBLE_CONFIG = '/mnt/c/shekhar/gitCode/JenkinsCode/ansibleCode/ansible.cfg'
+            }
             steps{
                 ansiblePlaybook credentialsId: 'dbhost_private_id', become: true, installation: 'Ansible', inventory: 'ansibleCode/inv/hosts', playbook: 'ansibleCode/os_system_info.yml', vaultTmpPath: ''
             }

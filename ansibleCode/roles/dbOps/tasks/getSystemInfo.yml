@@ -18,4 +18,4 @@
 
 - name: script out
   debug:
-    msg: "{{script_out}}"
+    msg: "{{script_out.stdout_lines}}"
