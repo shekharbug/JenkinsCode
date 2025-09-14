@@ -9,7 +9,7 @@
 
 - name: copy source file to target host
   copy:
-    remote_src: "{{ role_path }}/files/systemInfo.py"
+    src: "{{ role_path }}/files/systemInfo.py"
     dest: /tmp/systeminfo.py
 
 - name: execute script
