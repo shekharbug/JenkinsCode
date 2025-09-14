@@ -1,0 +1,15 @@
+---
+- name : ping db host
+  hosts: dbhost
+  gather_facts: no
+  tasks:
+    - name: include db operaton role 
+      include_role:
+        name: dbOps
+        apply:
+            become: yes
+            become_user: root
+
+    - name: debug messages
+      debug:
+        msg: Hello world

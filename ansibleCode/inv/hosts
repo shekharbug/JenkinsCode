@@ -1,2 +1,2 @@
 [dbhost]
-dbhost1
+dbhost1 ansible_user=root

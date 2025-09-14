@@ -1,0 +1,21 @@
+---
+- name: db operation messages
+  debug:
+    msg : hello running from role db operations
+
+- name: get system info
+  debug: 
+    msg: python3 {{ role_path }}/files/systeminfo.py
+
+- name: copy source file to target host
+  copy:
+    src: "{{ role_path }}/files/systeminfo.py"
+    dest: /tmp/systeminfo.py
+
+- name: execute script
+  shell: python3 /tmp/systeminfo.py
+  register: script_out 
+
+- name: script out
+  debug:
+    msg: "{{script_out}}"
