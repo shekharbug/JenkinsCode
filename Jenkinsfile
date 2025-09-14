@@ -15,7 +15,7 @@ pipeline{
         }
         stage('Execute Ansible code'){
             steps{
-                ansiblePlaybook become: true, installation: 'Ansible', inventory: 'ansibleCode/inv/hosts', playbook: 'ansibleCode/os_system_info.yml', vaultTmpPath: ''
+                ansiblePlaybook credentialsId: 'dbhost_private_id', become: true, installation: 'Ansible', inventory: 'ansibleCode/inv/hosts', playbook: 'ansibleCode/os_system_info.yml', vaultTmpPath: ''
             }
         }
     }
