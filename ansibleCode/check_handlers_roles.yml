@@ -1,0 +1,10 @@
+---
+- name: checking handlers inside role 
+  hosts: dbhost
+  gather_facts: false
+  tasks:
+    - name: check free memory 
+      include_role:
+        name: osOps
+      vars:
+        operation : "get_free_memory"

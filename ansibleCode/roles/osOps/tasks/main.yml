@@ -1,0 +1,9 @@
+--- 
+- name: running osOps 
+  shell: ps -ef
+  register: os_output
+  notify: get memory
+
+- name: get os output 
+  debug:
+    msg: "{{os_output}}"
