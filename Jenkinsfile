@@ -1,15 +1,35 @@
-// The @Library name must match the name you set in Step 3
-@Library('my-shared-library') _ 
-
 pipeline {
+
     agent any
+
     stages {
-        stage('Intro') {
+
+        stage('Welcome') {
             steps {
-                // We call the filename we created in the vars/ folder
-                sayHello('Gemini User') 
+                echo 'Welcome to Jenkins Pipeline'
             }
         }
+
+        stage('System Information') {
+            steps {
+                sh '''
+                    echo "Hostname:"
+                    hostname
+
+                    echo "Current User:"
+                    whoami
+
+                    echo "Current Directory:"
+                    pwd
+                '''
+            }
+        }
+
+        stage('Git Version') {
+            steps {
+                sh 'git --version'
+            }
+        }
+
     }
 }
-
