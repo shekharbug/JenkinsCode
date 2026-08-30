@@ -18,10 +18,11 @@ pipeline {
             echo "code success"
         }
         cleanup{
-            echo "Do cleanup"
+            // do cleanup of workspace
+            cleanWs()
         }
         failure {
-            cleanWs()
+            echo "Code failed"
         }
     }
 }
