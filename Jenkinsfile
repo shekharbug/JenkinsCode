@@ -5,8 +5,8 @@ pipeline {
             steps{
                 sh '''
                     source /home/oracle/venv/bin/activate
-                    which python
-                    python hello.py
+                    which python3
+                    python3 hello.py
                 '''
             }
         }
