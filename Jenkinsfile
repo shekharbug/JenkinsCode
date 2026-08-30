@@ -21,7 +21,7 @@ pipeline {
             echo "Do cleanup"
         }
         failure {
-            echo "code failure"
+            cleanWs() # do cleanup of workspace
         }
     }
 }
