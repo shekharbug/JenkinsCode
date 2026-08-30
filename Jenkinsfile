@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Test code'){
             steps{
-                sh '''
+                bash '''
                     source /home/oracle/venv/bin/activate
                     cat hello.py
                     python3 hello.py
