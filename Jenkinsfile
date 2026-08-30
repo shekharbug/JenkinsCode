@@ -10,4 +10,18 @@ pipeline {
             }
         }
     }
+    post {
+        always{
+            echo "This code always run"
+        }
+        success{
+            echo "code success"
+        }
+        cleanup{
+            echo "Do cleanup"
+        }
+        failue {
+            echo "code failure"
+        }
+    }
 }
