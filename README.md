@@ -1,2 +1,0 @@
-# JenkinsCode
-Learning Jenkins
