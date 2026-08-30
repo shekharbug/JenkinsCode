@@ -5,6 +5,9 @@ pipeline {
             steps{
                 echo "hello jenkins!"
             }
+            steps{
+                sh 'python hello.py'
+            }
         }
     }
 }
