@@ -20,7 +20,7 @@ pipeline {
         cleanup{
             echo "Do cleanup"
         }
-        failue {
+        failure {
             echo "code failure"
         }
     }
