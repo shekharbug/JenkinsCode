@@ -18,7 +18,7 @@ pipeline {
                     which pip
                     pwd
                     ls -ld requirements.txt
-                    pip install requirements.txt
+                    pip install -r requirements.txt
                 '''
             }
         }
@@ -32,5 +32,15 @@ pipeline {
                 '''
             }
         }
+
+        stage('Start Docker'){
+            steps{
+                sh '''
+                    docker run -itd --name demo -p 5000:5000 jenkins-demo:${BUILD_NUMBER}
+                    docker container ls
+                '''
+            }
+        }
+
     }
 }
