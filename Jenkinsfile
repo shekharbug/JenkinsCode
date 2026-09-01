@@ -16,6 +16,17 @@ pipeline {
                     which python
                     which python3
                     which pip
+                    pip install requirements.txt
+                '''
+            }
+        }
+
+        stage('Docker image creation'){
+            steps{
+                sh '''
+                    echo "build number : ${BUILD_NUMBER}"
+                    docker build -t jenkins-demo:${BUILD_NUMBER}
+                    docker image ls
                 '''
             }
         }
