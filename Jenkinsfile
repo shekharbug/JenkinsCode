@@ -11,7 +11,7 @@ pipeline {
         stage('install requirements for python'){
             steps{
                 sh '''
-                    python3 -m vev venv
+                    python3 -m venv venv
                     . venv/bin/activate
                     which python
                     which python3
