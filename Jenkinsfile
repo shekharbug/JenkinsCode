@@ -27,7 +27,7 @@ pipeline {
             steps{
                 sh '''
                     echo "build number : ${BUILD_NUMBER}"
-                    docker build -t jenkins-demo:${BUILD_NUMBER}
+                    docker build -t jenkins-demo:${BUILD_NUMBER} .
                     docker image ls 
                 '''
             }
