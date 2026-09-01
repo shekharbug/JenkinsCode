@@ -16,6 +16,8 @@ pipeline {
                     which python
                     which python3
                     which pip
+                    pwd
+                    ls -ld requirements.txt
                     pip install requirements.txt
                 '''
             }
@@ -26,7 +28,7 @@ pipeline {
                 sh '''
                     echo "build number : ${BUILD_NUMBER}"
                     docker build -t jenkins-demo:${BUILD_NUMBER}
-                    docker image ls
+                    docker image ls 
                 '''
             }
         }
