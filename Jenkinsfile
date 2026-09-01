@@ -1,28 +1,11 @@
 pipeline {
     agent any
     stages {
-        stage('Test code'){
+        stage('checkout scm'){
             steps{
-                sh '''
-                    cat hello.py
-                    python3 hello.py
-                '''
+                echo "doing checkout of scm git"
+                checkout scm
             }
-        }
-    }
-    post {
-        always{
-            echo "This code always run"
-        }
-        success{
-            echo "code success"
-        }
-        cleanup{
-            // do cleanup of workspace
-            cleanWs()
-        }
-        failure {
-            echo "Code failed"
         }
     }
 }
