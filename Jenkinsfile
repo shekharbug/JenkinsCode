@@ -6,6 +6,7 @@ pipeline {
                 echo "doing checkout of scm git"
                 checkout scm
             }
+        }
 
         stage('install requirements for python'){
             steps{
@@ -17,7 +18,6 @@ pipeline {
                     which pip
                 '''
             }
-        }
         }
     }
 }
